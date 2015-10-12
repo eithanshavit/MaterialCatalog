@@ -17,7 +17,16 @@ require.config({
 });
 
 require([
-    'backbone'
-], function (Backbone) {
+    'backbone',
+    'views/material',
+    'collections/materials'
+], function (Backbone, MaterialView, MaterialsCollection) {
     Backbone.history.start();
+    var c = new MaterialsCollection();
+    c.bind("add", function(){
+      console.log('Collection has changed.');
+    });
+    c.fetch({reset: true});
+    var view = new MaterialView({model: c});
+    view.render();
 });

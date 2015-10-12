@@ -26,19 +26,6 @@ module.exports = function (grunt) {
     };
 
     grunt.initConfig({
-        indent: {
-          scripts: {
-            src: [
-              'src/*.js'
-            ],
-            dest: 'dist/',
-            options: {
-              style: 'space',
-              size: 2,
-              change: 1
-            }
-          }
-        },
         yeoman: yeomanConfig,
         watch: {
             options: {
