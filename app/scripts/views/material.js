@@ -21,15 +21,7 @@ define([
         },
 
         render: function () {
-            this.$el.html(this.template(this.model.toJSON()));
-        },
-
-        addOne: function (material) {
-            this.$el.append(this.template(material.toJSON()));
-        },
-
-        addAll: function () {
-            this.model.each(this.addOne, this);
+            this.$el.html(this.template(this.model.models));
         },
 
     });

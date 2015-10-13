@@ -5,3 +5,14 @@ test/temp
 app/bower_components
 .tmp
 test/bower_components/
+
+### Google docs ###
+Materials.gsheet
+
+### Vim ###
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~

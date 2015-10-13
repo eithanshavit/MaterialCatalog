@@ -14,10 +14,16 @@ define([
 
         model: MaterialModel,
 
-        url: 'data/materials.json',
+        url: 'https://spreadsheets.google.com/feeds/list/1E8jvOsdRhM9VnchrcyZmbLrmKA01xRFRanaZ3WAEm_s/od6/public/values?alt=json',
 
         parse: function(response){
-           return response;
+           var entries = response.feed.entry;
+           return _.map(entries, function(entry) {
+              var m = new MaterialModel();
+              m.configWithGoogleDocsEntry(entry);
+              console.log(m.name);
+              return m;
+           });
         }
     });
 
