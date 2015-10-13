@@ -4,12 +4,13 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'templates'
-], function ($, _, Backbone, JST) {
+    'handlebars',
+    'text!templates/materials.hbs'
+], function ($, _, Backbone, Handlebars, template) {
     'use strict';
 
     var MaterialView = Backbone.View.extend({
-        template: JST['app/scripts/templates/materials.ejs'],
+        template: Handlebars.compile(template),
 
         el: '#test-div',
 
