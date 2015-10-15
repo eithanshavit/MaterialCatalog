@@ -6,17 +6,31 @@ define([
     'common',
     'models/material',
     'views/material',
+    'views/materialList',
     'views/loader'
-], function ($, Backbone, Common, Material, MaterialDetailView, LoaderView) {
+], function ($, Backbone, Common, Material, MaterialDetailView, MaterialListView, LoaderView) {
     'use strict';
 
     var RouterRouter = Backbone.Router.extend({
         routes: {
-            'material': 'handleMaterialList',
+            'materials/:familyName': 'handleMaterialList',
+            'materials/': 'handleMaterialList',
+            'materials': 'handleMaterialList',
             'material/:materialId': 'handleMaterialDetail'
         },
 
         initialize: function() {
+        },
+
+        handleMaterialList: function(params) {
+            var family = params;
+            console.log(family);
+            var view = new MaterialListView({model: Common.materials});
+            view.family = family;
+            view.activate();
+            if (!this.maybeDisplayLoader()) {
+              view.render();
+            }
         },
 
         handleMaterialDetail: function(params) {

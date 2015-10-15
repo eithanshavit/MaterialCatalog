@@ -1,1 +1,18 @@
-<p>{{ name }} {{ family }} {{ vendor }} {{ color }}</p>
+<table class="table table-hover">
+  <tr>
+    <th>צבע</th>
+    <th>ספק</th>
+    <th>משפחה</th>
+    <th>שם</th>
+  </tr>
+{{#each materials}}
+  {{#with attributes}}
+    <tr>
+      <td>{{ color }}</td>
+      <td>{{ vendor }}</td>
+      <td>{{ family }}</td>
+      <td>{{ name }}</td>
+    </tr>
+  {{/with}}
+{{/each}}
+</table>

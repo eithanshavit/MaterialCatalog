@@ -22,11 +22,13 @@ define([
         },
 
         render: function () {
-            if (this.model.isValid()) {
-              this.$el.html(this.template(this.model.attributes));
-            }
-            else {
-              this.$el.html(this.template({invalid: true}));
+            if (Common.activeTabView === this) {
+                if (this.model.isValid()) {
+                  this.$el.html(this.template(this.model.attributes));
+                }
+                else {
+                  this.$el.html(this.template({invalid: true}));
+                }
             }
         },
 
