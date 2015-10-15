@@ -9,9 +9,9 @@
   {{#with attributes}}
     <tr>
       <td>{{ color }}</td>
-      <td>{{ vendor }}</td>
-      <td>{{ family }}</td>
-      <td>{{ name }}</td>
+      <td><a href="#/vendor/{{ vendor }}">{{ vendor }}</a></td>
+      <td><a href="#/family/{{ family }}">{{ family }}</a></td>
+      <td><a href="#/material/{{ id }}">{{ name }}</a></td>
     </tr>
   {{/with}}
 {{/each}}

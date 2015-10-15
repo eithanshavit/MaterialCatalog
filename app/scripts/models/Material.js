@@ -37,8 +37,29 @@ define([
               id:           entry.gsx$id.$t,
               vendor:       entry.gsx$vendor.$t,
               family:       entry.gsx$family.$t,
+              castable:     this.normalizeBool(entry.gsx$castable.$t),
+              moldable:     this.normalizeBool(entry.gsx$moldable.$t),
+              etchable:     this.normalizeBool(entry.gsx$etchable.$t),
+              cuttable:     this.normalizeBool(entry.gsx$cuttable.$t),
+              brushable:    this.normalizeBool(entry.gsx$brushable.$t),
+              recyclable:   this.normalizeBool(entry.gsx$recyclable.$t),
+              color:        entry.gsx$color.$t,
+              opacity:      entry.gsx$opacity.$t,
+              flexability:  entry.gsx$flexability.$t,
+              thoughness:    entry.gsx$thoughness.$t,
+              durability:   entry.gsx$durability.$t,
               exists:       true
             });
+        },
+
+        normalizeBool: function(value) {
+            if (value === 'x' || value === 'לא' || value === 'no') {
+                return false
+            }
+            if (value) {
+              return true
+            }
+            return false
         },
 
         validate: function(attrs) {
