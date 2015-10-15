@@ -13,6 +13,7 @@ define([
         },
 
         defaults: {
+          id: 'XXX',
           name: 'Product',
           vendor: 'Vendor',
           family: 'Product family',
@@ -26,14 +27,24 @@ define([
           opacity: 100,
           flexability: 100,
           toughness: 100,
-          durability: 100
-        },
-
-        validate: function(attrs, options) {
+          durability: 100,
+          exists: false
         },
 
         configWithGoogleDocsEntry: function(entry) {
-            this.name = entry.gsx$product.$t;
+            this.set({
+              name:         entry.gsx$product.$t,
+              id:           entry.gsx$id.$t,
+              vendor:       entry.gsx$vendor.$t,
+              family:       entry.gsx$family.$t,
+              exists:       true
+            });
+        },
+
+        validate: function(attrs) {
+          if (!attrs.exists) {
+            return 'Can\'t find model with ID' + attrs.id;
+          }
         }
 
     });

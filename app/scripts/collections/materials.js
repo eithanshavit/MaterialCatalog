@@ -21,9 +21,12 @@ define([
            return _.map(entries, function(entry) {
               var m = new MaterialModel();
               m.configWithGoogleDocsEntry(entry);
-              console.log(m.name);
               return m;
            });
+        },
+      
+        isEmpty: function() {
+          return (this.length <= 0);
         }
     });
 

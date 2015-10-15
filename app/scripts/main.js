@@ -20,13 +20,14 @@ require.config({
 
 require([
     'backbone',
+    'common',
+    'routers/router',
     'handlebars',
-    'views/material',
+    'views/materialList',
     'collections/materials'
-], function (Backbone, Handlebars, MaterialView, MaterialsCollection) {
+], function (Backbone, Common, Router, Handlebars, MaterialListView, MaterialsList) {
+    Common.materials = new MaterialsList();
+    Common.materials.fetch();
+    new Router();
     Backbone.history.start();
-    var c = new MaterialsCollection();
-    c.fetch({reset: true});
-    var view = new MaterialView({model: c});
-    view.render();
 });

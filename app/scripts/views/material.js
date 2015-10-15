@@ -4,25 +4,35 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'common',
     'handlebars',
-    'text!templates/materials.hbs'
-], function ($, _, Backbone, Handlebars, template) {
+    'text!templates/material.hbs'
+], function ($, _, Backbone, Common, Handlebars, template) {
     'use strict';
 
     var MaterialView = Backbone.View.extend({
         template: Handlebars.compile(template),
 
-        el: '#test-div',
+        el: '#main-div',
 
         events: {},
 
         initialize: function () {
-            this.listenTo(this.model, 'reset', this.render);
+            this.listenTo(Common.materials, 'sync', this.render);
         },
 
         render: function () {
-            this.$el.html(this.template(this.model.models));
+            if (this.model.isValid()) {
+              this.$el.html(this.template(this.model.attributes));
+            }
+            else {
+              this.$el.html(this.template({invalid: true}));
+            }
         },
+
+        activate: function() {
+            Common.activeTabView = this;
+        }
 
     });
 
