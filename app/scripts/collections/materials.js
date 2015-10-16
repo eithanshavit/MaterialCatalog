@@ -3,8 +3,9 @@
 define([
     'underscore',
     'backbone',
+    'common/global',
     'models/material'
-], function (_, Backbone, MaterialModel) {
+], function (_, Backbone, Global, MaterialModel) {
     'use strict';
 
     var MaterialsCollection = Backbone.Collection.extend({
@@ -14,7 +15,7 @@ define([
 
         model: MaterialModel,
 
-        url: 'https://spreadsheets.google.com/feeds/list/1E8jvOsdRhM9VnchrcyZmbLrmKA01xRFRanaZ3WAEm_s/od6/public/values?alt=json',
+        url: Global.DATA_URL,
 
         parse: function(response){
            var entries = response.feed.entry;

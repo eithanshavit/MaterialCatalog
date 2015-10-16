@@ -13,6 +13,12 @@ module.exports = function (grunt) {
     require('load-grunt-tasks')(grunt);
 
     grunt.initConfig({
+        'gh-pages': {
+            options: {
+              base: 'dist'
+            },
+            src: ['**']
+        },
         watch: {
             options: {
                 nospawn: true,
@@ -90,7 +96,8 @@ module.exports = function (grunt) {
         },
         clean: {
             dist: ['.tmp', 'dist/*'],
-            server: '.tmp'
+            server: '.tmp',
+            ghpages: '.grunt'
         },
         jshint: {
             options: {
@@ -281,5 +288,11 @@ module.exports = function (grunt) {
         'jshint',
         'test',
         'build'
+    ]);
+
+    grunt.registerTask('deploy', [
+        'build',
+        'gh-pages',
+        'clean:ghpages'
     ]);
 };
