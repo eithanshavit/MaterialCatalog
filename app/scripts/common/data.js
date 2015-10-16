@@ -12,7 +12,7 @@ define([
     families: new FamiliesCollection([
           new FamilyModel({name: 'שרפים'}),
           new FamilyModel({name: 'חומר טבעי'}),
-          new FamilyModel({name: 'כימקאלים'}),
+          new FamilyModel({name: 'כימיקאלים'}),
           new FamilyModel({name: 'פגמנטים'}),
           new FamilyModel({name: 'גומי'}),
           new FamilyModel({name: 'דבקים'}),
