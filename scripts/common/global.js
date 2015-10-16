@@ -1,1 +1,1 @@
-"use strict";define([],function(){return{activeTabView:null}});
+"use strict";define([],function(){return{activeTabView:null,DATA_URL:"https://spreadsheets.google.com/feeds/list/1E8jvOsdRhM9VnchrcyZmbLrmKA01xRFRanaZ3WAEm_s/od6/public/values?alt=json"}});
