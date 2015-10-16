@@ -24,7 +24,6 @@ define([
 
         handleMaterialList: function(params) {
             var family = params;
-            console.log(family);
             var view = new MaterialListView({model: Common.materials});
             view.family = family;
             view.activate();
