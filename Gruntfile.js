@@ -125,6 +125,15 @@ module.exports = function (grunt) {
               dest: 'dist/styles',
               ext: '.css'
             }]
+          },
+          server: {
+            files: [{
+              expand: true,
+              cwd: 'app/styles',
+              src: ['*.{scss,sass}'],
+              dest: '.tmp/styles',
+              ext: '.css'
+            }]
           }
         },
         requirejs: {

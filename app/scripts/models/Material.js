@@ -54,12 +54,12 @@ define([
 
         normalizeBool: function(value) {
             if (value === 'x' || value === 'לא' || value === 'no') {
-                return false
+                return false;
             }
             if (value) {
-              return true
+              return true;
             }
-            return false
+            return false;
         },
 
         validate: function(attrs) {

@@ -3,16 +3,20 @@
 define([
     'jquery',
     'backbone',
-    'common',
+    'common/data',
     'models/material',
     'views/material',
     'views/materialList',
+    'views/familyList',
     'views/loader'
-], function ($, Backbone, Common, Material, MaterialDetailView, MaterialListView, LoaderView) {
+], function ($, Backbone, Data, Material, MaterialDetailView, MaterialListView, FamilyListView, LoaderView) {
     'use strict';
 
     var RouterRouter = Backbone.Router.extend({
         routes: {
+            '/': 'handleRoot',
+            '.': 'handleRoot',
+            '': 'handleRoot',
             'materials/:familyName': 'handleMaterialList',
             'materials/': 'handleMaterialList',
             'materials': 'handleMaterialList',
@@ -22,9 +26,15 @@ define([
         initialize: function() {
         },
 
+        handleRoot: function() {
+            var view = new FamilyListView({model: Data.families});
+            view.activate();
+            view.render();
+        },
+
         handleMaterialList: function(params) {
             var family = params;
-            var view = new MaterialListView({model: Common.materials});
+            var view = new MaterialListView({model: Data.materials});
             view.family = family;
             view.activate();
             if (!this.maybeDisplayLoader()) {
@@ -34,7 +44,7 @@ define([
 
         handleMaterialDetail: function(params) {
             var id = params;
-            var material = Common.materials.get(id);
+            var material = Data.materials.get(id);
             var model;
             if (material === undefined) {
               model = new Material({id: id});
@@ -47,11 +57,11 @@ define([
             if (!this.maybeDisplayLoader()) {
               view.render();
             }
-            Common.materials.add(model);
+            Data.materials.add(model);
         },
 
         maybeDisplayLoader: function() {
-          if (Common.materials.isEmpty()) {
+          if (Data.materials.isEmpty()) {
             var view = new LoaderView();
             view.render();
             return true;
