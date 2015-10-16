@@ -1,0 +1,1 @@
+define(["models/family","collections/families"],function(a,b){"use strict";return{materials:null,families:new b([new a({name:"שרפים"}),new a({name:"חומר טבעי"}),new a({name:"כימיקאלים"}),new a({name:"פגמנטים"}),new a({name:"גומי"}),new a({name:"דבקים"}),new a({name:"חומר בידוד"}),new a({name:"מתכות"}),new a({name:"ספוגים"}),new a({name:"פלסטיק"})])}});

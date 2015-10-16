@@ -1,0 +1,1 @@
+define(["jquery","underscore","backbone","handlebars","text!templates/loader.hbs"],function(a,b,c,d,e){"use strict";var f=c.View.extend({template:d.compile(e),el:"#main-div",events:{},initialize:function(){},render:function(){this.$el.html(this.template())}});return f});

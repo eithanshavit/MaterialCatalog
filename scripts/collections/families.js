@@ -1,0 +1,1 @@
+define(["underscore","backbone","models/family"],function(a,b,c){"use strict";var d=b.Collection.extend({defaults:{model:c},model:c});return d});

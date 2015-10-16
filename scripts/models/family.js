@@ -1,0 +1,1 @@
+define(["underscore","backbone"],function(a,b){"use strict";var c=b.Model.extend({url:"",defaults:{name:"Family"}});return c});
